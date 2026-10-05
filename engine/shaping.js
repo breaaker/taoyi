@@ -25,19 +25,25 @@
     const radialIntent=.12*Math.tanh(outward/80);
     const verticalIntent=.25*Math.tanh(-dy/85);
     const weights=base.radii.map((_,i)=>falloff(i-index));
-    // Strain only the gripped strip. The upper wall translates, retaining
-    // its own spacing and radius, while the bottom stays on the wheel.
+    // Stretch the gripped strip; compress the whole wall evenly.
+    // Both gestures keep the foot fixed on the wheel.
     const segmentWeights=base.heights.slice(1).map((_,i)=>falloff(i+.5-index));
     const activeLength=segmentWeights.reduce((sum,w,i)=>sum+w*(base.heights[i+1]-base.heights[i]),0);
     const requested=clamp(base.heights[RINGS]+verticalIntent,MIN_HEIGHT,MAX_HEIGHT)-base.heights[RINGS];
     const strain=activeLength>0?clamp(requested/activeLength,-.65,1.5):0;
     const result=cloneShape(base);
+    const compressing=verticalIntent<0;
+    const globalScale=(base.heights[RINGS]+requested)/base.heights[RINGS];
     for(let i=1;i<=RINGS;i++){
       const spacing=base.heights[i]-base.heights[i-1];
-      result.heights[i]=result.heights[i-1]+spacing*(1+strain*segmentWeights[i-1]);
+      result.heights[i]=compressing?base.heights[i]*globalScale:
+        result.heights[i-1]+spacing*(1+strain*segmentWeights[i-1]);
     }
     for(let i=0;i<=RINGS;i++){
-      const widthResponse=clamp(-.22*strain*weights[i]*base.radii[i],-.08,.08);
+      // A subtle width cue; vertical gestures must not create a thin ledge.
+      const widthResponse=compressing?
+        clamp(.04*(1-globalScale)*base.radii[i],0,.008):
+        clamp(-.025*strain*weights[i]*base.radii[i],-.008,0);
       result.radii[i]=clamp(base.radii[i]+radialIntent*weights[i]+widthResponse,.13,1);
     }
     return result;
