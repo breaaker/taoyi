@@ -99,13 +99,16 @@
       const firstWork=source?.scene==='index'&&!source.workId&&!!nextWorkId&&url.pathname.endsWith('/shaping-preview.html');
       // Pages without a vessel keep the old pot inside its moving scene.
       // A detached handoff image would stop in mid-screen, then vanish.
-      const vessel=(sameWork||firstWork)&&targetShot?.image?(liveOverlay(oldCanvas,newCanvas)||overlay(source)):null;
+      const vessel=(sameWork||firstWork)?(liveOverlay(oldCanvas,newCanvas)||(targetShot?.image?overlay(source):null)):null;
       const arriving=vessel?.tagName==='CANVAS'?null:vessel&&targetShot?.image?overlay({...targetShot,x:source.x,y:source.y,w:source.w,h:source.h}):null;
       if(vessel)vessel.style.zIndex='1005';
       if(arriving)arriving.style.zIndex='1004';
       if(vessel){
         if(oldCanvas&&!oldCanvas.__potteryRenderer?.drawStandOnly())oldCanvas.style.visibility='hidden';
-        if(newCanvas&&!newCanvas.__potteryRenderer?.drawStandOnly())newCanvas.style.opacity='0';
+        // A WebGL framebuffer is not a visibility lock. Keep the receiver
+        // hidden until the moving vessel has reached its final pose and the
+        // destination has rendered a fresh frame, even if stand-only succeeds.
+        if(newCanvas)newCanvas.style.opacity='0';
       }
       old.contentWindow.PotterySceneTransitioning=true;
       if(vessel)next.contentWindow.PotterySceneTransitioning=true;
