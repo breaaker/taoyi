@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "assetVersion": "2026-10-04",
+  "assetType": "source-linked-redrawn-repeat-band",
+  "tileSize": {
+    "width": 1024,
+    "height": 512
+  },
+  "uv": {
+    "wrapU": "repeat",
+    "wrapV": "clamp",
+    "alpha": "straight",
+    "colorSpace": "sRGB"
+  },
+  "patterns": [
+    {
+      "id": "R01",
+      "name": "粉青印菊",
+      "colors": [
+        "#f3eee0",
+        "#796950"
+      ],
+      "note": "原器的碗内印菊、密集点列与口沿斜线重新分层，改绘为游戏环带；不是原盘展开。",
+      "source": {
+        "objectID": 57354,
+        "url": "https://www.metmuseum.org/art/collection/search/57354",
+        "title": "Dish with chrysanthemums and rows of dots"
+      },
+      "svg": "svg/R01.svg",
+      "colorPng": "png/R01.png",
+      "previewPng": "previews/R01.png",
+      "repeatHint": 4,
+      "repeat": true,
+      "fidelity": "game-adaptation-not-exact-replica",
+      "cultureId": "korea",
+      "cultureLabel": "韩国粉青陶"
+    },
+    {
+      "id": "R02",
+      "name": "伊兹尼克花叶",
+      "colors": [
+        "#174f80",
+        "#b74f37",
+        "#568472"
+      ],
+      "note": "保留原砖占据画面的大锯齿 saz 叶、五瓣小花与郁金香；将砖面重新编为环带。",
+      "source": {
+        "objectID": 451739,
+        "url": "https://www.metmuseum.org/art/collection/search/451739",
+        "title": "Iznik tile with flowers and leaves"
+      },
+      "svg": "svg/R02.svg",
+      "colorPng": "png/R02.png",
+      "previewPng": "previews/R02.png",
+      "repeatHint": 4,
+      "repeat": true,
+      "fidelity": "game-adaptation-not-exact-replica",
+      "cultureId": "iznik",
+      "cultureLabel": "土耳其伊兹尼克"
+    },
+    {
+      "id": "R03",
+      "name": "代尔夫特蓝绘",
+      "colors": [
+        "#28598b"
+      ],
+      "note": "原盘的分格边沿与盘心花鸟重新组合为游戏蓝绘环带；鸟并非原器边沿纹。",
+      "source": {
+        "objectID": 196577,
+        "url": "https://www.metmuseum.org/art/collection/search/196577",
+        "title": "Delft blue-painted bird-and-flower dish"
+      },
+      "svg": "svg/R03.svg",
+      "colorPng": "png/R03.png",
+      "previewPng": "previews/R03.png",
+      "repeatHint": 4,
+      "repeat": true,
+      "fidelity": "game-adaptation-not-exact-replica",
+      "cultureId": "delft",
+      "cultureLabel": "荷兰代尔夫特"
+    },
+    {
+      "id": "R04",
+      "name": "梳划泥浆",
+      "colors": [
+        "#4a3029",
+        "#d7ad76"
+      ],
+      "note": "按原盘改成竖向棕泥浆细线，梳具横拖形成多道同步的小折痕；原作在盘内。",
+      "source": {
+        "objectID": 701303,
+        "url": "https://www.metmuseum.org/art/collection/search/701303",
+        "title": "English combed slipware tray"
+      },
+      "svg": "svg/R04.svg",
+      "colorPng": "png/R04.png",
+      "previewPng": "previews/R04.png",
+      "repeatHint": 4,
+      "repeat": true,
+      "fidelity": "game-adaptation-not-exact-replica",
+      "cultureId": "british-slipware",
+      "cultureLabel": "英国泥浆彩陶"
+    },
+    {
+      "id": "R05",
+      "name": "景德镇莲池",
+      "colors": [
+        "#315987",
+        "#558678",
+        "#bf7558"
+      ],
+      "note": "原器为盘心斗彩莲池与水禽；以蓝线、绿叶、橙红瓣尖、水纹和两只水禽改绘为游戏环带。",
+      "source": {
+        "objectID": 42303,
+        "url": "https://www.metmuseum.org/art/collection/search/42303",
+        "title": "Jingdezhen lotus-pond dish"
+      },
+      "svg": "svg/R05.svg",
+      "colorPng": "png/R05.png",
+      "previewPng": "previews/R05.png",
+      "repeatHint": 4,
+      "repeat": true,
+      "fidelity": "game-adaptation-not-exact-replica",
+      "cultureId": "china",
+      "cultureLabel": "中国景德镇"
+    }
+  ]
+}

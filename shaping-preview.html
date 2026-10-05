@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script src="./engine/app-entry.js?v=20261005file1"></script><style>html.scene-loading body{visibility:hidden}html.scene-loading .scene-handoff-backdrop,html.scene-loading .vessel-handoff{visibility:visible}</style><script>try{if(sessionStorage.getItem("clay-and-flame-scene-handoff-v1"))document.documentElement.classList.add("scene-loading") }catch(_){}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14231d">
+  <title>塑形 · 泥与火</title>
+  <link rel="stylesheet" href="./shaping-preview.css?v=20261005touch1">
+  <link rel="stylesheet" href="./order-peek.css?v=20261003d">
+  <link rel="stylesheet" href="./order-rating.css?v=20261004a">
+  <link rel="stylesheet" href="./reference-viewer.css">
+  <link rel="stylesheet" href="./mobile-shell.css?v=20261004frame3">
+<link rel="stylesheet" href="./game-frame.css?v=20261004spa3"><link rel="stylesheet" href="./glass.css?v=20261005clear1"><link rel="stylesheet" href="./locale.css?v=20261005en1"></head>
+<body>
+  <main class="workbench">
+    <header class="topbar">
+      <a class="back" href="./index.html" aria-label="返回工坊"><svg class="button-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M26 16H6M13 9l-7 7 7 7"/></svg></a>
+      <div class="top-title"><span>泥与火</span><small>塑形</small></div>
+      <a class="shop-link" href="./shop.html">商店</a><span class="draft-state" id="draftState">自动保存</span>
+    </header>
+
+    <section class="stage" aria-label="陶器三维塑形区域">
+      <div class="stage-light" aria-hidden="true"></div>
+      <div class="stage-note"><span class="note-number">01 / 塑形</span><strong id="materialName">暖陶土</strong><small id="wheelStatus">湿泥 · 转盘旋转中</small></div>
+      <canvas id="potCanvas" aria-label="陶器三维塑形视图。按住器身并拖动以塑形；拖动空白处可旋转视角"></canvas>
+      <svg class="touch-band" id="touchBand" aria-hidden="true"><path class="touch-band-rear"/><path class="touch-band-front"/></svg>
+      <div class="stage-prompt" id="stagePrompt">按住陶器任意位置，左右推拉、上下拉伸</div>
+      <div class="stage-footer"><span id="shapeMetrics">器高 100% · 器宽 100%</span><span>空白处拖动可转动视角</span></div>
+    </section>
+
+    <section class="tray" aria-label="塑形工具">
+      <div class="tray-head"><span>手中的泥</span><p>每次拖动只会小幅改变触点附近；重复手势可以继续塑形。</p></div>
+      <div class="tray-row purpose-row"><span>创作方式</span><div class="purpose-choices" role="group" aria-label="选择自由创作或订单"><button type="button" data-purpose="free">自由创作</button><button type="button" data-purpose="order">阿蘅订单</button></div></div>
+      <div class="tray-row"><label for="materialSelect">泥料</label><select id="materialSelect" aria-label="选择塑形泥料"></select></div>
+      <div class="tray-row speed-row"><label for="wheelSpeed">转台速度</label><input id="wheelSpeed" type="range" min="0" max="100" value="55" aria-label="调整转台速度"><output id="wheelSpeedValue" for="wheelSpeed">中速</output></div>
+      <div class="tray-row mode-row"><span>手势</span><div class="segmented" role="group" aria-label="手势模式"><button id="shapeMode" type="button" aria-pressed="true">塑形</button><button id="viewMode" type="button" aria-pressed="false">查看</button></div></div>
+      <div class="action-row"><button id="undo" type="button" disabled>↶ <span>撤销</span></button><button id="redo" type="button" disabled>↷ <span>重做</span></button><button id="resetShape" type="button">重置器型</button></div>
+      <a class="next-step" href="./kiln-preview.html">把这件陶坯送入窑炉 →</a>
+    </section>
+    <div id="renderError" class="render-error" role="alert" hidden></div>
+  </main>
+  <script src="./engine/audio-assets.js?v=20261004shell1"></script><script src="./engine/audio.js?v=20261005audio2"></script><script>window.PotteryAudio.setScene("shape");</script><script src="./engine/geometry.js?v=20261005mass1"></script>
+  <script src="./engine/renderer.js?v=20261005rimlight1"></script>
+  <script src="./engine/surface-drawing.js?v=20261005eraser1"></script>
+  <script src="./engine/shaping.js?v=20261005mass2"></script>
+  <script src="./samples/clay-recipes.js"></script>
+  <script src="./samples/pigments.js?v=20261003b"></script><script src="./engine/photo.js?v=20261003b"></script><script src="./engine/auction.js?v=20261003d"></script><script src="./content/order-patterns.js?v=20261005allorders1"></script><script src="./engine/economy-catalog.js?v=20261005eraser1"></script>
+  <script src="./engine/workflow.js?v=20261004recover1"></script><script src="./shaping-preview.js?v=20261005orders3"></script>
+  <script src="./engine/decoration.js?v=20261005eraser1"></script><script src="./engine/order-reference.js?v=20261005allorders1"></script><script src="./engine/capabilities.js?v=20261004orders1"></script><script src="./content/order-catalog.js?v=20261005allorders1"></script><script src="./engine/order-registry.js?v=20261005allorders1"></script><script src="./engine/orders.js?v=20261005eraser1"></script><script src="./reference-viewer.js?v=20261005glass1"></script><script src="./order-peek.js?v=20261005glass1"></script><script src="./order-rating.js?v=20261004a"></script>
+  <script src="./mobile-shell.js?v=20261005eraser1"></script>
+<script src="./game-frame.js?v=20261004audio1"></script><script src="./scene-transition.js?v=20261005pose1"></script><script src="./content/locales/en-ui.js?v=20261005eraser1"></script><script src="./content/locales/en-stories.js?v=20261005en1"></script><script src="./engine/i18n.js?v=20261005en1"></script></body>
+</html>

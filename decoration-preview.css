@@ -1,0 +1,21 @@
+.stage{background:radial-gradient(circle at 48% 34%,#969a8a53,#394d426c 46%,#1a2a239c 88%)}
+.tray{background:#101f18e6}.tray-head span{color:#f0e3cc}.tray-row{min-height:68px}.tool-row .segmented button,.pattern-row .segmented button{min-width:75px}
+.swatch-row{min-width:0}.swatches{display:flex;align-items:center;flex:1;min-width:0;overflow-x:auto;overflow-y:hidden;gap:9px;padding:7px 4px;scrollbar-width:thin}.swatches button{flex:0 0 31px;width:31px;height:31px;border-radius:50%;border:2px solid #f2e6ca50;background:var(--swatch);box-shadow:inset 0 2px 3px #fff2,0 3px 5px #0005}.swatches button[aria-pressed="true"]{outline:2px solid #e8d9b6;outline-offset:3px;transform:scale(1.05)}.swatches button:focus-visible{outline:2px solid #fff}
+.tray-row input[type="range"]{flex:1;min-width:80px;accent-color:#c8a775}.tray-row output{width:31px;text-align:right;color:#dec597}.sample-note{font-size:10px;line-height:1.7;color:#b6c4b5;margin:16px 0 0}.pattern-row[hidden]{display:none}
+@media(max-width:760px){.stage{height:min(56vh,540px);min-height:380px}.tray-row{min-height:58px}.swatches button{width:29px;height:29px}}
+.pattern-row{padding:12px 0;border-top:1px solid #dac69b2b}
+.pattern-heading{display:flex;justify-content:space-between;align-items:center;margin:10px 0 7px;color:#e7d1a8;font-size:12px;letter-spacing:.08em}
+.pattern-heading small{font-size:10px;color:#aebdaf;letter-spacing:0}
+.pattern-grid{display:flex;gap:9px;overflow-x:auto;padding:5px 3px 11px;scroll-snap-type:x proximity;scrollbar-width:thin}
+.pattern-grid button{flex:0 0 104px;min-height:75px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;border:1px solid #b0a37c70;border-radius:10px;background:#28362b;color:#e7e5d5;font:inherit;font-size:11px;scroll-snap-align:start;cursor:pointer}
+.pattern-grid button[aria-pressed="true"]{border-color:#f3d9a1;box-shadow:0 0 0 2px #e6c57a55;background:#435344}
+.pattern-grid img{width:86px;height:40px;object-fit:contain;border-radius:4px;background:#d9d0ba}
+@media(max-width:760px){.pattern-grid button{flex-basis:94px;min-height:72px}.pattern-grid img{width:78px}}
+.pattern-heading a{font-size:11px;letter-spacing:0;color:#e9c78c;text-decoration:none;border-bottom:1px solid #e9c78c80;padding-bottom:2px}
+.pattern-heading a:focus-visible{outline:2px solid #fff}
+.pattern-grid:empty::after{content:'还没有自制花纹，点右上角开始绘制';color:#aebdaf;font-size:11px;padding:14px 2px}
+.culture-patterns{margin:5px 0 8px;border-top:1px solid #d5c39c35}.culture-patterns summary{padding:9px 3px;color:#e7d1a8;font-size:12px;cursor:pointer}.culture-patterns .pattern-grid:empty::after{content:none}
+.draw-row[hidden]{display:none}.draw-row{padding:12px 0;border-top:1px solid #dac69b2b}.draw-row p{margin:2px 0 12px;color:#b7c6b9;font-size:11px;line-height:1.6}.draw-row output{min-width:40px}.tool-row .segmented{display:flex;flex-wrap:wrap}.tool-row .segmented button{min-width:70px}
+.next-photo{display:block;margin-top:12px;padding:14px 16px;border-radius:9px;background:#d6bc82;color:#1b2d22;text-align:center;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.06em}.next-photo:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.swatches button:disabled{opacity:.45;cursor:not-allowed}.pattern-grid button:disabled{opacity:.55;cursor:not-allowed}
+.speed-row,.mode-row,#undo,#redo,.draw-row p{display:none!important}

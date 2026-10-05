@@ -1,0 +1,7 @@
+/* Keep English labels readable within the same shared game controls. */
+html[lang=en] body{font-family:Georgia,"Times New Roman",serif}
+html[lang=en] button,html[lang=en] label,html[lang=en] .tool-choice{letter-spacing:normal}
+html[lang=en] .choice-name,html[lang=en] .pattern-name{font-size:.82em;line-height:1.2;overflow-wrap:anywhere}
+html[lang=en] .pattern-grid:empty::after{content:'No custom patterns yet. Start drawing from the top right.'}
+html[lang=en] .culture-patterns .pattern-grid:empty::after{content:none}
+html[lang=en] .album-grid:empty::after{content:'No photos yet. Adjust the view and take your first photo.'}

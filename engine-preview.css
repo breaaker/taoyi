@@ -1,0 +1,43 @@
+:root{color-scheme:dark;font-family:"Noto Sans SC","PingFang SC",sans-serif;color:#eee9dc;background:#14211d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;overflow-x:hidden}
+button,input{font:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #d8c693;outline-offset:4px}
+.ambient{position:fixed;inset:0;z-index:-2;background:linear-gradient(90deg,#10221bbc,#172d21ae),url('./assets/studio-bokeh.png') center/cover;filter:saturate(.58) brightness(.58)}
+.ambient:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 52% 9%,#b3a67525,transparent 36%),linear-gradient(180deg,#12211ad0 0%,#12211a82 43%,#0b1615f2 100%)}
+.page{width:min(1300px,100%);margin:0 auto;padding:0 clamp(20px,4.2vw,58px)}
+.masthead{min-height:90px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #d8d0b332}
+.brand{text-decoration:none;color:#f4eee0;display:flex;align-items:center;gap:11px;font-family:"Songti SC","Noto Serif SC",Georgia,serif;font-size:20px;font-weight:700;letter-spacing:.12em}
+.brand-mark{font:41px/1 Georgia,serif;transform:rotate(-22deg);color:#cbbd8f}
+.brand small{display:block;margin-top:2px;font:600 8px/1.3 "Noto Sans SC",sans-serif;letter-spacing:.34em;color:#c0c5b6}
+.issue{color:#c0c2b1;font:500 10px/1.3 Georgia,serif;letter-spacing:.25em}.issue b{font-weight:400;color:#f1dcab;margin-left:9px}
+.intro{padding:clamp(46px,6vw,80px) 0 34px;max-width:850px}
+.eyebrow{display:flex;align-items:center;gap:12px;color:#c7b58b;font-size:10px;letter-spacing:.25em;font-weight:700}.eyebrow-line{display:block;width:27px;height:1px;background:#c7b58b}
+h1,h2,p{margin:0}
+.intro h1{margin:16px 0 15px;font:500 clamp(38px,5.3vw,70px)/1.19 "Songti SC","Noto Serif SC",Georgia,serif;letter-spacing:.035em;text-shadow:0 3px 20px #0008}.intro h1 em{font-style:normal;color:#d8c99f}
+.intro p{max-width:590px;color:#c8cec4;font-size:13px;line-height:1.95;letter-spacing:.035em}
+.study-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:15px;color:#e7ddc7;font:600 10px/1.3 Georgia,"Noto Sans SC",sans-serif;letter-spacing:.18em}.study-hint{color:#aebbb0;font:400 11px/1.3 "Noto Sans SC",sans-serif;letter-spacing:.04em}
+.triptych{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.material-card{position:relative;overflow:hidden;border:1px solid #e3dcc52e;border-radius:11px;min-width:0;box-shadow:0 21px 44px #06100d67;background:radial-gradient(circle at 50% 30%,#77766894,#414c43aa 48%,#202d27 84%)}
+.material-card:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.27;background-image:repeating-linear-gradient(0deg,#ffffff06 0 1px,transparent 1px 4px);mix-blend-mode:screen}
+.card-top{position:absolute;top:18px;left:20px;right:21px;z-index:2;display:flex;align-items:center;justify-content:space-between;color:#e4dcc6d1}.state-number{font:13px/1 Georgia,serif;letter-spacing:.14em}.state-symbol{font:22px/1 Georgia,serif;color:#e4d1a4}
+.display{height:clamp(335px,35vw,480px);position:relative;overflow:hidden}.pot-halo{position:absolute;left:50%;top:42%;width:95%;height:92%;transform:translate(-50%,-50%);background:radial-gradient(circle,#d5cab424,transparent 62%);filter:blur(8px)}
+.pedestal{display:none}
+.pot-view{position:absolute;inset:0;display:block;width:100%;height:100%;touch-action:none;cursor:grab;outline:none}.pot-view:active{cursor:grabbing}
+.card-copy{position:relative;min-height:143px;padding:17px 20px 18px;background:linear-gradient(#12231ce0,#0c1916eb);border-top:1px solid #e2d4ae23}
+.state-tag{color:#d2be93;font:700 9px/1.2 Georgia,serif;letter-spacing:.23em}.card-copy h2{font:500 25px/1.3 "Songti SC","Noto Serif SC",Georgia,serif;margin:6px 0}.card-copy p{font-size:11px;line-height:1.45;color:#c6cfc3}
+.state-meter{display:flex;align-items:center;gap:9px;margin-top:15px;color:#a5b4a8;font-size:9px;letter-spacing:.12em}.state-meter i{height:1px;background:#b9ae8980;flex:1}
+.recipe-choice{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px;color:#b9c7b8;font-size:10px;white-space:nowrap}.recipe-choice select{width:min(66%,190px);min-height:32px;padding:5px 8px;color:#eee6d5;background:#273a30;border:1px solid #cfc29b64;border-radius:6px;font-size:11px}
+.controls{margin:25px 0 35px;display:flex;align-items:center;gap:30px;flex-wrap:wrap;padding:22px 25px;background:#0c1a16a8;border:1px solid #d8cfb72e;border-radius:10px;backdrop-filter:blur(12px)}
+.control-heading{min-width:240px;flex:1}.control-heading span{font:600 10px Georgia,"Noto Sans SC",sans-serif;letter-spacing:.18em;color:#e6ddc9}.control-heading p{font-size:11px;color:#9fafa3;margin-top:7px}
+.control-field{display:flex;flex-direction:column;gap:9px;min-width:180px;flex:1}.control-field label{display:flex;justify-content:space-between;font-size:10px;color:#c1c8b8}.control-field output{color:#e2cb97}.control-field input{width:100%;accent-color:#d4b979}
+.fire-field{min-width:220px}.range-ends{display:flex;justify-content:space-between;color:#91a096;font-size:9px}
+.control-actions{display:flex;align-items:center;gap:8px;color:#bbc8b8;font-size:10px}.control-actions button{width:33px;height:33px;border-radius:50%;border:1px solid #d3c9ab70;background:#ffffff0a;color:#f7ebca;font-size:17px}.control-actions .reset-view{width:auto;padding:0 12px;border-radius:16px;margin-left:6px;font-size:10px;white-space:nowrap}
+.next-step{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 15px;border-radius:7px;background:#d5c196;color:#203026;text-decoration:none;font-size:11px;font-weight:700;white-space:nowrap}
+.footer{display:flex;justify-content:space-between;gap:12px;padding:18px 0 30px;border-top:1px solid #ddd4bb25;color:#9ca99f;font-size:10px;letter-spacing:.07em}
+.render-error{position:fixed;z-index:10;inset:auto 15px 15px;background:#442b25;color:#fff;padding:15px;border-radius:9px;box-shadow:0 7px 20px #0009}
+@media(max-width:760px){.page{padding:0 20px}.masthead{min-height:72px}.brand{font-size:18px}.brand-mark{font-size:34px}.issue{font-size:9px}.intro{padding:45px 0 28px}.intro h1{font-size:clamp(36px,9vw,51px)}.intro p{font-size:12px}.study-hint{font-size:10px;text-align:right}.triptych{display:flex;gap:12px;margin:0 -20px;padding:0 20px 15px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scrollbar-width:none}.triptych::-webkit-scrollbar{display:none}.material-card{flex:0 0 min(79vw,390px);scroll-snap-align:center}.display{height:clamp(355px,91vw,440px)}.controls{gap:18px;padding:20px;margin-top:14px}.control-heading{min-width:100%;}.fire-field{min-width:100%}.control-actions{flex:1;justify-content:flex-end}.next-step{width:100%}.footer{font-size:9px;line-height:1.6}}
+@media(max-width:370px){.issue{letter-spacing:.07em}.material-card{flex-basis:83vw}.study-hint{max-width:165px}.controls{gap:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.triptych{scroll-snap-type:none}}
+@media(max-width:760px){body{height:100dvh;overflow:hidden;background:linear-gradient(#0b1d15bf,#071a12d7),url('./assets/studio-bokeh.png') center/cover fixed}.page{max-width:480px;height:100dvh;overflow:auto;padding:0 10px 30px}.masthead{min-height:56px;background:#1a352897;backdrop-filter:blur(16px)}.intro{padding:13px 6px 9px}.intro h1{font-size:24px;line-height:1.25;margin:6px 0}.intro p{display:none}.study-head{padding:6px 0}.triptych{margin:0 -10px;padding:0 10px 8px}.material-card{flex-basis:calc(min(100vw,480px) - 20px);background:#213b2ec9;backdrop-filter:blur(15px)}.display{height:min(53dvh,490px)}.card-copy{min-height:0;padding:12px 16px}.card-copy p{margin:4px 0}.controls{background:#1c3829c9;backdrop-filter:blur(18px);border-radius:15px}.control-heading p{display:none}}

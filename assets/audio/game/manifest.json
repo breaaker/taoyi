@@ -1,0 +1,370 @@
+{
+  "music": {
+    "workshop": {
+      "path": "./assets/audio/game/music/workshop.mp3",
+      "source": "assets/audio/inbox/M01/Clay_at_First_Light_2026-10-04T054030.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "8f72b9f23f9cd0fd8868575c672182fb25ca99fd7df9b129034ac6f40beaa7fe"
+    },
+    "shape": {
+      "path": "./assets/audio/game/music/shape.mp3",
+      "source": "assets/audio/inbox/M02/Clay_on_the_Wheel_2026-10-04T054305.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "ba33e25b37f9566d50bc771985e9213cd77b89d81dcd4b53652d879fbf2929b4"
+    },
+    "kiln": {
+      "path": "./assets/audio/game/music/kiln.mp3",
+      "source": "assets/audio/inbox/M03/preheat/First_Ember_2026-10-04T054457.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "a4b5595e0287f0a730d7b7868a23300a5c491ac25dedc2927b0db04c9e3b27fa"
+    },
+    "kiln_cool": {
+      "path": "./assets/audio/game/music/kiln_cool.mp3",
+      "source": "assets/audio/inbox/M03/cooling/Cooling_Kiln_Harmony_2026-10-04T054727.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "9cf6ab712bd9ce862b73a0abe54d50000416d891ede341964f71ccff4c2e707c"
+    },
+    "decorate": {
+      "path": "./assets/audio/game/music/decorate.mp3",
+      "source": "assets/audio/inbox/M04/Glaze_and_Pattern_2026-10-04T054945.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "58ad9c978e71654b293bd217e9987035daf7c6ee8bc445ba83a32d414855b116"
+    },
+    "photo": {
+      "path": "./assets/audio/game/music/photo.mp3",
+      "source": "assets/audio/working/M05/M05a_first35_review.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "98e0072ecd6e4a449c85232723c136322821825e911ff2d910be87c11b9c6075"
+    },
+    "photo_reveal": {
+      "path": "./assets/audio/game/music/photo_reveal.mp3",
+      "source": "assets/audio/inbox/M05/reveal/Quiet_Clay_Reveal_2026-10-04T055346.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "5805e53e8c6458e2a1e610a17962a59147bd0e86932bb33b2d85a12a2b0af731"
+    },
+    "auction": {
+      "path": "./assets/audio/game/music/auction.mp3",
+      "source": "assets/audio/inbox/M06/tension/Minimal_Bidder_Block_2026-10-04T055555.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "e8e5f57a9ed0821c888a03f71dba557988fad1a3536219eec1b98ddad84422bf"
+    },
+    "auction_resolve": {
+      "path": "./assets/audio/game/music/auction_resolve.mp3",
+      "source": "assets/audio/inbox/M06/resolve/Closing_the_Bid_2026-10-04T055830.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "20676d1da3f5ba1b9282f740a927a42b4863053749ef5010e008c459ace718c2"
+    },
+    "letters": {
+      "path": "./assets/audio/game/music/letters.mp3",
+      "source": "assets/audio/inbox/M07/Letter_From_the_Coast_2026-10-04T055957.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "be7dbae10bbfd7b5522d6004630c06c6f9fd87f7bea5e625e6514021f4a897f9"
+    }
+  },
+  "ambience": {
+    "wheel": {
+      "path": "./assets/audio/game/ambience/wheel.mp3",
+      "source": "assets/audio/inbox/A02/A_close,_clean_hand-_#4-1791089640956.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "2be17b55b11a956dbdb44dcf40cc084af31933afdeae114ace92d0daa00adbb1"
+    },
+    "fire": {
+      "path": "./assets/audio/game/ambience/fire.mp3",
+      "source": "assets/audio/inbox/A03/A_small_pottery_kiln_#1-1791091010031.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "7e8d323d8a2de115a51d88a766bffc6eaa39fd70e3bba5c3006491ffb633d185"
+    },
+    "crowd": {
+      "path": "./assets/audio/game/ambience/crowd.mp3",
+      "source": "assets/audio/inbox/A06/Distant_muffled_voic_#4-1791091686309.wav",
+      "trimStart": 0,
+      "gainDb": 0,
+      "sha256": "d0f0aca767bdbd078d9081c692b0d468683682f16b2c38bdcbfe66e6febf3297"
+    }
+  },
+  "randomAmbience": {
+    "embers": [
+      {
+        "path": "./assets/audio/game/randomAmbience/embers_01.mp3",
+        "source": "assets/audio/inbox/A04/A_few_sparks_splashe_#1-1791090373174.wav",
+        "trimStart": 0,
+        "gainDb": 0,
+        "sha256": "f640dfcf0c9aaae149ab0d5c088eef9f8dd446a9e4e94a6896b9d990fa9eaee2"
+      },
+      {
+        "path": "./assets/audio/game/randomAmbience/embers_02.mp3",
+        "source": "assets/audio/inbox/A04/A_few_sparks_splashe_#2-1791090390796.wav",
+        "trimStart": 0,
+        "gainDb": 0,
+        "sha256": "ed40ff4f4017b8197db27a0b1f480f670e4c098aa1872b13556a56c8f93dd326"
+      },
+      {
+        "path": "./assets/audio/game/randomAmbience/embers_03.mp3",
+        "source": "assets/audio/inbox/A04/A_few_sparks_splashe_#4-1791090383906.wav",
+        "trimStart": 0,
+        "gainDb": 0,
+        "sha256": "f148a3524aeeef390ac312e7d6cc582d8bde4fa602f6be692f553371179c84c7"
+      }
+    ],
+    "cooling": [
+      {
+        "path": "./assets/audio/game/randomAmbience/cooling_01.mp3",
+        "source": "assets/audio/inbox/A05/A_soft_sound_from_a__#1-1791091559078.wav",
+        "trimStart": 0,
+        "gainDb": 0,
+        "sha256": "627531007f51a21907b22c79b65987510b628a38d9045c3b1cd345d09e95d62b"
+      },
+      {
+        "path": "./assets/audio/game/randomAmbience/cooling_02.mp3",
+        "source": "assets/audio/inbox/A05/A_soft_sound_from_a__#3-1791091555801.wav",
+        "trimStart": 0,
+        "gainDb": 0,
+        "sha256": "5f1d0254e092ff77bc1a2c67327759d6cb259d685413128bf0cbea5773cedb42"
+      }
+    ]
+  },
+  "effects": {
+    "shape": [
+      {
+        "path": "./assets/audio/game/effects/shape_01.mp3",
+        "source": "assets/audio/inbox/S01/Fingers_gently_press_#4-1791091142349.wav",
+        "trimStart": 0.445,
+        "gainDb": 3,
+        "sha256": "f21b32f74b940b85c95cbd882bae7a6f5219b0042e232b019c849223aa23151a"
+      },
+      {
+        "path": "./assets/audio/game/effects/shape_02.mp3",
+        "source": "assets/audio/inbox/S01/One_close_soft_foley_#1-1791089974478.wav",
+        "trimStart": 0.285,
+        "gainDb": 3,
+        "sha256": "a2439902a8335c9c5a5bee61f6c374ee4846af518da50bc4a9ceaa3b8851bc10"
+      },
+      {
+        "path": "./assets/audio/game/effects/shape_03.mp3",
+        "source": "assets/audio/inbox/S01/One_close_soft_foley_#2-1791089967083.wav",
+        "trimStart": 0.065,
+        "gainDb": 3,
+        "sha256": "c97e010638713d2e8c0a1a9e4ec8a4d833aa3bf0ff15bb2d78a2c92b0fbe5228"
+      },
+      {
+        "path": "./assets/audio/game/effects/shape_04.mp3",
+        "source": "assets/audio/inbox/S01/One_close_soft_foley_#4-1791089986429.wav",
+        "trimStart": 0.635,
+        "gainDb": 3,
+        "sha256": "ce7fea5856013566733f06c12095d9c2003585a8f5041db8fac41079835b9b32"
+      }
+    ],
+    "clay": [
+      {
+        "path": "./assets/audio/game/effects/clay_01.mp3",
+        "source": "assets/audio/inbox/S02/Soft_thud_of_clay_la_#1-1791090588949.wav",
+        "trimStart": 1.175,
+        "gainDb": 0,
+        "sha256": "8bbdacdea8720ac1b473e4b6198c580d7d43aa909aadc968ea72bf4f93dc39f7"
+      },
+      {
+        "path": "./assets/audio/game/effects/clay_02.mp3",
+        "source": "assets/audio/inbox/S02/Soft_thud_of_clay_la_#1-1791090700242.wav",
+        "trimStart": 0.745,
+        "gainDb": 0,
+        "sha256": "cd72240fbe8a0c004c831c7c54f8450435ed1904b01bdb2a5306ab65c58bb81e"
+      },
+      {
+        "path": "./assets/audio/game/effects/clay_03.mp3",
+        "source": "assets/audio/inbox/S02/Soft_thud_of_clay_la_#3-1791090705242.wav",
+        "trimStart": 0.745,
+        "gainDb": 0,
+        "sha256": "d8555f77f06dc40d28b350542818d227e9721c544ccfd274e9bb855dbc66c117"
+      },
+      {
+        "path": "./assets/audio/game/effects/clay_04.mp3",
+        "source": "assets/audio/inbox/S02/Soft_thud_of_clay_la_#4-1791090594112.wav",
+        "trimStart": 0.935,
+        "gainDb": 0,
+        "sha256": "e264c89c3cd5a5b643cf80fc8d472f7d45e49da1b462ee1720cd7c0ecae2e5dc"
+      }
+    ],
+    "brush": [
+      {
+        "path": "./assets/audio/game/effects/brush_01.mp3",
+        "source": "assets/audio/inbox/S03/A_soft_brush_paintin_#1-1791091209352.wav",
+        "trimStart": 0,
+        "gainDb": 8,
+        "sha256": "07cdb319e7587449efb5cec164fcfd3ea0b1238f210b5dce849457278758b8ae"
+      },
+      {
+        "path": "./assets/audio/game/effects/brush_02.mp3",
+        "source": "assets/audio/inbox/S03/A_soft_brush_paintin_#2-1791091209353.wav",
+        "trimStart": 0.065,
+        "gainDb": 8,
+        "sha256": "e1ac36e3e4a69655071c7cfb3b5839c388fd91e87d21022e8669c5d648fd40e4"
+      },
+      {
+        "path": "./assets/audio/game/effects/brush_03.mp3",
+        "source": "assets/audio/inbox/S03/A_soft_brush_paintin_#3-1791091209353.wav",
+        "trimStart": 0.095,
+        "gainDb": 8,
+        "sha256": "4eca867d3ea8fa8474783aacc9b05dc6833170ee9dde675547c3ce223542fc2d"
+      },
+      {
+        "path": "./assets/audio/game/effects/brush_04.mp3",
+        "source": "assets/audio/inbox/S03/A_soft_brush_paintin_#4-1791091209354.wav",
+        "trimStart": 0.065,
+        "gainDb": 8,
+        "sha256": "dbddf07eb0ebfc4dcd2d61140c6ba1bb0140c20aa3290665ced68f69d4a2ffc7"
+      }
+    ],
+    "ignite": [
+      {
+        "path": "./assets/audio/game/effects/ignite_01.mp3",
+        "source": "assets/audio/inbox/S06/A_small_pottery_kiln_#1-1791091342064.wav",
+        "trimStart": 0,
+        "gainDb": 0,
+        "sha256": "c1129f9268f970aac1b2cca2ef1383f2367eb052f42ab6dfb195dfb6c0abf9f4"
+      },
+      {
+        "path": "./assets/audio/game/effects/ignite_02.mp3",
+        "source": "assets/audio/inbox/S06/A_small_pottery_kiln_#2-1791091342065.wav",
+        "trimStart": 0.585,
+        "gainDb": 0,
+        "sha256": "a8bc79e0f9b7eafb306e81844781217bfe6e135355589e921694797fffa73559"
+      }
+    ],
+    "ceramic": [
+      {
+        "path": "./assets/audio/game/effects/ceramic_01.mp3",
+        "source": "assets/audio/inbox/S08/Gentle_thud_of_a_sma_#1-1791091906854.wav",
+        "trimStart": 1.205,
+        "gainDb": 0,
+        "sha256": "2e1b3d1f39a7ae6f3588f74484b31b7d265578e7c85c7d95be37c01aeb89d15c"
+      },
+      {
+        "path": "./assets/audio/game/effects/ceramic_02.mp3",
+        "source": "assets/audio/inbox/S08/Gentle_thud_of_a_sma_#3-1791091906854.wav",
+        "trimStart": 0.435,
+        "gainDb": 0,
+        "sha256": "1de48b31f5ad993855f0fa1e1b4b4adf0876a58f647d633acf3963b68dca813e"
+      }
+    ],
+    "camera": [
+      {
+        "path": "./assets/audio/game/effects/camera_01.mp3",
+        "source": "assets/audio/inbox/S09/A_camera_shutter_cli_#1-1791091979261.wav",
+        "trimStart": 0,
+        "gainDb": 0,
+        "sha256": "5aa3fde34c49cd54260ed4a77596537f386f5d281ece2b3fd23bbaae7c031783"
+      },
+      {
+        "path": "./assets/audio/game/effects/camera_02.mp3",
+        "source": "assets/audio/inbox/S09/A_camera_shutter_cli_#2-1791091983810.wav",
+        "trimStart": 0,
+        "gainDb": 0,
+        "sha256": "a3c2d1b6f99e1510f4c16b4b4d7c0d4fa2efbcbdc495f5f2219b485f3da574f4"
+      },
+      {
+        "path": "./assets/audio/game/effects/camera_03.mp3",
+        "source": "assets/audio/inbox/S09/A_camera_shutter_cli_#3-1791091988541.wav",
+        "trimStart": 0,
+        "gainDb": 0,
+        "sha256": "f7afaabfbfcf6bbd20de7f22720865a6e049374a943217b1aa7f8c734537257a"
+      }
+    ],
+    "paper": [
+      {
+        "path": "./assets/audio/game/effects/paper_01.mp3",
+        "source": "assets/audio/inbox/S10/paper/A_sheet_of_letter_pa_#1-1791092137429.wav",
+        "trimStart": 0.365,
+        "gainDb": 3,
+        "sha256": "b92e967d3d9f02077f75d2b62be23ec381c39e304fc3faeab0a57b0a11b3ef7a"
+      },
+      {
+        "path": "./assets/audio/game/effects/paper_02.mp3",
+        "source": "assets/audio/inbox/S10/paper/A_sheet_of_letter_pa_#1-1791092145582.wav",
+        "trimStart": 0.355,
+        "gainDb": 3,
+        "sha256": "b072263e8e0bff5de0ff94544c92f61f35fd18271487ace5b243a2e7debc9b7b"
+      }
+    ],
+    "envelope": [
+      {
+        "path": "./assets/audio/game/effects/envelope_01.mp3",
+        "source": "assets/audio/inbox/S10/envelope/A_paper_envelope_fla_#1-1791092076738.wav",
+        "trimStart": 0.525,
+        "gainDb": 3,
+        "sha256": "c8e010dd60c1c2b4b14b7eacf53d60a62217fc275a7272c5f6214d3c47e11342"
+      },
+      {
+        "path": "./assets/audio/game/effects/envelope_02.mp3",
+        "source": "assets/audio/inbox/S10/envelope/A_paper_envelope_fla_#4-1791092064968.wav",
+        "trimStart": 0.095,
+        "gainDb": 3,
+        "sha256": "b445724487f61ba27db0710e2ab330e4e7e6d8609ebf9f2e25d737fd25d41a25"
+      }
+    ],
+    "gavel": [
+      {
+        "path": "./assets/audio/game/effects/gavel_01.mp3",
+        "source": "assets/audio/inbox/S12/A_small_wooden_gavel_#1-1791091400161.wav",
+        "trimStart": 0,
+        "gainDb": 24.78,
+        "sha256": "d846e673c685ddd2dbc93cea7b3968d032d990136b05bf7fda2ed2da00719d98"
+      },
+      {
+        "path": "./assets/audio/game/effects/gavel_02.mp3",
+        "source": "assets/audio/inbox/S12/A_small_wooden_gavel_#2-1791091403266.wav",
+        "trimStart": 0,
+        "gainDb": 29.57,
+        "sha256": "64f97daa0babb1b39339f6be0bbef87ba67e94688cc9245f088775a7bdd98c9b"
+      },
+      {
+        "path": "./assets/audio/game/effects/gavel_03.mp3",
+        "source": "assets/audio/inbox/S12/A_small_wooden_gavel_#3-1791091407492.wav",
+        "trimStart": 0,
+        "gainDb": 20.21,
+        "sha256": "35f86a876f472c3ad90e59f89ee15c766be5a46c2ac9a5adb7a1fec17b80c1de"
+      },
+      {
+        "path": "./assets/audio/game/effects/gavel_04.mp3",
+        "source": "assets/audio/inbox/S12/A_small_wooden_gavel_#4-1791091410570.wav",
+        "trimStart": 0,
+        "gainDb": 28.85,
+        "sha256": "b00ca4ae5733d226b32e8dad458f67437132c1ddf6ce141e4955334a9a23b853"
+      }
+    ],
+    "coin": [
+      {
+        "path": "./assets/audio/game/effects/coin_01.mp3",
+        "source": "assets/audio/inbox/S13/A_few_coins_dropping_#1-1791092316158.wav",
+        "trimStart": 0.025,
+        "gainDb": 0,
+        "sha256": "e841035a600cd785bd12e52eb51c19802ed4b91b1ac87716daefb929ed39d57c"
+      },
+      {
+        "path": "./assets/audio/game/effects/coin_02.mp3",
+        "source": "assets/audio/inbox/S13/A_few_coins_dropping_#2-1791092316159.wav",
+        "trimStart": 0.225,
+        "gainDb": 0,
+        "sha256": "79677e77efad431babe248ad270726d75a4bd98af1bb017615df0e012f18626c"
+      },
+      {
+        "path": "./assets/audio/game/effects/coin_03.mp3",
+        "source": "assets/audio/inbox/S13/A_few_coins_dropping_#3-1791092316159.wav",
+        "trimStart": 0.005,
+        "gainDb": 0,
+        "sha256": "225350263655ff930b7e3bcb0f73edbf2a5390395c23c8c500432e3d2d8a493a"
+      }
+    ]
+  }
+}

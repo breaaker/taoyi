@@ -1,0 +1,50 @@
+/* Shared scene glass: the backdrop is sampled by the element itself, so
+   rounded edges and blur always have the same bounds. No duplicate image. */
+:root{--glass-fill:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.025) 48%,rgba(255,255,255,.045));--glass-edge:rgba(255,255,255,.28);--glass-shadow:inset 0 1px 0 rgba(255,255,255,.48),inset 0 -1px 0 rgba(255,255,255,.10),0 5px 16px rgba(0,0,0,.12)}
+#gameFrame :is(.mobile-tool-strip,.pattern-mobile-nav,.editor-section,.preview-section,.assist-section,.save-section,.order-rating,.shop nav,.shop header,.shop .card),.settings-dialog{
+ background:var(--glass-fill);border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow);
+ backdrop-filter:blur(8px) saturate(1.08) brightness(1.02);-webkit-backdrop-filter:blur(8px) saturate(1.08) brightness(1.02);
+ color:#fffbed;
+}
+#gameFrame :is(.mobile-shortcut,.mobile-shortcut.mobile-done,.strip-close,.back-button,.topbar>a:first-child,.top>a:first-child,.shop header a,.home-menu span,.settings-open){
+ background:var(--glass-fill);border:1px solid var(--glass-edge);box-shadow:var(--glass-shadow);
+ backdrop-filter:blur(5px) saturate(1.08);-webkit-backdrop-filter:blur(5px) saturate(1.08);
+ border-radius:50%;clip-path:circle(50% at 50%);color:#fffbed;
+}
+#gameFrame :is(.strip-choices button,.strip-tool .pattern-grid button,.strip-tool .swatches button,.strip-tool #patternGroup){
+ background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.25);box-shadow:inset 0 1px rgba(255,255,255,.25);
+ backdrop-filter:none;-webkit-backdrop-filter:none;
+}
+#gameFrame .strip-choices button{border-radius:18px;clip-path:inset(0 round 18px);font-size:14px;white-space:nowrap}
+#gameFrame .strip-choices button[aria-pressed=true]{background:rgba(255,242,203,.12);border-color:rgba(255,248,219,.75);color:#fffbed;box-shadow:inset 0 1px rgba(255,255,255,.45),0 2px 8px #0001}
+#gameFrame .mobile-tool-strip{height:118px;max-height:30dvh;border-top:0;border-left:0;border-right:0;box-shadow:inset 0 -1px rgba(255,255,255,.14),0 8px 24px #0002;animation:glass-tray-in .2s cubic-bezier(.16,1,.3,1)}
+#gameFrame .mobile-tool-strip.strip-compact{height:calc(76px + env(safe-area-inset-top));max-height:none;padding-top:calc(12px + env(safe-area-inset-top));padding-bottom:12px}
+#gameFrame .strip-compact .strip-choices{gap:8px}
+#gameFrame .strip-compact .strip-choices button{min-height:40px;padding:8px 16px}
+#gameFrame .strip-close{width:36px;height:36px;font-size:24px;box-shadow:inset 0 1px #fff5}
+#gameFrame .shop nav{border-radius:16px;overflow:hidden}
+.settings-dialog{border-radius:24px}
+#gameFrame :is(.mobile-shortcut,.strip-choices button){transition:background .18s ease,box-shadow .18s ease}
+#gameFrame .mobile-shortcut:active{scale:.96}
+@keyframes glass-tray-in{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){#gameFrame .mobile-tool-strip{animation:none}#gameFrame :is(.mobile-shortcut,.strip-choices button){transition:none}}
+
+#gameFrame .shop nav a{background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.27);color:#fffbed}
+/* Active tools keep the same clipped glass surface, with a restrained warm light. */
+#gameFrame .mobile-shortcut[aria-pressed=true]{background:rgba(250,225,162,.14);border-color:rgba(255,246,213,.96);color:#fffcef;box-shadow:inset 0 0 0 2px #fff5,inset 0 1px #fff9}
+#gameFrame .mobile-shortcut.tool-locked::after{content:'·';position:absolute;bottom:2px;right:10px;color:#e8d6b5;font-size:20px}
+.mobile-decor #gameFrame .mobile-action-dock{gap:clamp(5px,1.3vh,13px)}
+.mobile-decor #gameFrame .mobile-shortcut{width:min(clamp(46px,5vw,57px),max(34px,calc((100dvh - 140px)/7)));height:min(clamp(46px,5vw,57px),max(34px,calc((100dvh - 140px)/7)))}
+#gameFrame .shop-tool-icon{height:74px;display:grid;place-items:center;color:#f2dfb9}
+#gameFrame .shop-tool-icon svg{width:40px;height:40px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+/* One centered cell per round control. SVG arrows have no font baseline. */
+#gameFrame :is(.mobile-shortcut,.strip-close,.back-button,.topbar>a:first-child,.top>a:first-child,.shop header a,.settings-open){display:grid;grid-template-columns:1fr;grid-template-rows:1fr;place-items:center;align-content:normal;padding:0;line-height:1;flex-shrink:0}
+#gameFrame :is(.mobile-shortcut,.strip-close,.back-button,.topbar>a:first-child,.top>a:first-child,.shop header a,.settings-open)>span{grid-area:1/1;display:grid;place-items:center;line-height:1}
+#gameFrame .shop header a::after{content:none}
+#gameFrame .button-icon{display:block;grid-area:1/1;width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#gameFrame .mobile-shortcut svg{display:block}
+
+/* Keep the scenery legible through the glass, including modal surfaces. */
+.settings-dialog::backdrop{background:rgba(6,17,10,.38);backdrop-filter:none;-webkit-backdrop-filter:none}
+.settings-language select,.settings-header button{background:rgba(255,255,255,.065)}
+#gameFrame :is(.mobile-tool-strip,.shop header,.shop nav,.order-rating),.settings-dialog{ text-shadow:0 1px 3px rgba(0,0,0,.45) }

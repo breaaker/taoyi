@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script src="./engine/app-entry.js?v=20261005file1"></script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14231d"><title>自制花纹 · 泥与火</title>
+  <link rel="stylesheet" href="./pattern-studio.css">
+  <link rel="stylesheet" href="./pattern-mobile.css?v=20261004frame3">
+<link rel="stylesheet" href="./audio.css?v=20261003glass2"><link rel="stylesheet" href="./game-frame.css?v=20261004scene2"><link rel="stylesheet" href="./glass.css?v=20261005clear1"><link rel="stylesheet" href="./locale.css?v=20261005en1"></head>
+<body>
+  <main class="studio">
+    <header class="top"><a href="./decoration-preview.html" aria-label="返回陶器装饰"><svg class="button-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M26 16H6M13 9l-7 7 7 7"/></svg></a><div><span>泥与火</span><small>自制花纹工作台</small></div><span id="saveState">未保存</span></header>
+    <section class="intro"><span>04 / 自制花纹</span><h1>画一段，绕成一圈</h1><p>在透明画布上绘制一个单元。左右边缘会自动接合，下方能看到整圈重复效果。</p></section>
+    <section class="editor-section" aria-label="纹样编辑">
+      <div class="section-head"><strong>纹样单元</strong><span>左右两侧相连 · 可跨边缘绘制</span><button id="zoomToggle" type="button" aria-pressed="false">放大画布</button></div>
+      <div class="editor-frame"><canvas id="unitCanvas" width="720" height="360" aria-label="在此绘制纹样单元"></canvas><div class="seam seam-left">接缝</div><div class="seam seam-right">接缝</div></div>
+      <div class="tool-grid" role="group" aria-label="绘画工具">
+        <button type="button" data-tool="brush" aria-pressed="true">画笔</button><button type="button" data-tool="line">直线</button><button type="button" data-tool="circle">圆形</button><button type="button" data-tool="leaf">叶片</button><button type="button" data-tool="erase">橡皮</button>
+      </div>
+      <div class="control-row"><label for="inkColor">画笔颜色</label><input type="color" id="inkColor" value="#315987"><label for="brushSize">笔触</label><input type="range" id="brushSize" min="4" max="90" value="18"><output id="sizeValue">18</output></div>
+      <div class="control-row"><label class="check"><input id="symmetry" type="checkbox"> 左右对称绘制</label><span class="hint">擦除也可撤销</span></div>
+      <div class="edit-actions"><button id="undo" disabled>↶ 撤销</button><button id="redo" disabled>↷ 重做</button><button id="clear" type="button">清空画布</button></div>
+    </section>
+    <section class="preview-section" aria-label="整圈预览">
+      <div class="section-head"><strong>整圈预览</strong><a href="./pattern-fit.html">去 3D 陶器上调整 ↗</a></div>
+      <div class="preview-frame"><canvas id="tileCanvas" width="1024" height="256" aria-label="一整圈花纹平铺预览"></canvas></div>
+      <div class="control-row"><label for="repeatCount">重复次数</label><input id="repeatCount" type="range" min="1" max="16" value="4"><output id="repeatValue">4</output></div>
+      <div class="control-row"><label for="spacing">纹样间距</label><input id="spacing" type="range" min="0" max="45" value="0"><output id="spacingValue">0%</output></div>
+      <div class="control-row"><label for="arrangement">排列</label><select id="arrangement"><option value="repeat">同向重复</option><option value="mirror">交替镜像</option></select><label for="offset">起始角度</label><input id="offset" type="range" min="0" max="100" value="0"><output id="offsetValue">0°</output></div>
+    </section>
+    <section class="assist-section" aria-label="主题辅助设计"><div class="section-head"><strong>主题辅助设计</strong><span>先看候选，再加入画布编辑</span></div><div class="control-row"><label for="theme">主题</label><select id="theme"><option value="tide">海潮</option><option value="reed">芦叶</option><option value="stars">星图</option><option value="brick">旧砖</option></select><label for="density">疏密</label><input id="density" type="range" min="1" max="5" value="3"><output id="densityValue">3</output></div><p>候选使用当前画笔颜色、重复与排列设置。选中后可以继续画、擦除和撤销。</p><div id="themeCandidates" class="candidates" role="group" aria-label="主题纹样候选"></div><button id="applyTheme" type="button" disabled>将选中候选加入画布</button></section>
+    <section class="save-section"><label for="patternName">花纹名称</label><input id="patternName" maxlength="32" value="我的花纹" autocomplete="off"><button id="save" type="button">保存并用于陶器</button><p id="message" role="status">保存后可在装饰页的“我的花纹”里再次选择与编辑。</p></section>
+  </main>
+  <script src="./engine/audio-assets.js?v=20261004shell1"></script><script src="./engine/audio.js?v=20261005audio2"></script><script>window.PotteryAudio.setScene("pattern");</script><script src="./engine/custom-patterns.js?v=20261003b"></script><script src="./engine/theme-patterns.js?v=20261003a"></script><script src="./pattern-studio.js?v=20261003c"></script><script src="./pattern-mobile.js?v=20261004frame3"></script>
+<script src="./game-frame.js?v=20261004audio1"></script><script src="./content/locales/en-ui.js?v=20261005eraser1"></script><script src="./content/locales/en-stories.js?v=20261005en1"></script><script src="./engine/i18n.js?v=20261005en1"></script></body>
+</html>

@@ -1,0 +1,110 @@
+/* One background per scene; the interactive surface fills the entire viewport. */
+html,body{width:100%;height:100%;min-height:0;margin:0;overflow:hidden}
+body{position:relative;background:#11241b;--scene-image:url('./assets/studio-wide.png');--scene-tint:linear-gradient(#0b20162a,#07150e50)}
+body[data-game-scene="kiln-preview"]{--scene-image:url('./assets/kiln-wide.png?v=20261004newscene1');--scene-tint:linear-gradient(#21120d12,#110c093b)}
+body[data-game-scene="photo-studio"]{--scene-image:url('./assets/photo-wide.png');--scene-tint:linear-gradient(#ab9d8615,#6d655b19)}
+body[data-game-scene="auction"]{--scene-image:url('./assets/auction-wide.png?v=20261004newscene1');--scene-tint:linear-gradient(#21130a1b,#160c0835)}
+body[data-game-scene="orders"]{--scene-image:url('./assets/orders-wide.png');--scene-tint:linear-gradient(#0f21141d,#0a150b40)}
+body::before{content:"";position:fixed;inset:0;background-image:var(--scene-tint),var(--scene-image);background-position:center;background-size:cover;pointer-events:none}
+#gameFrame{position:fixed;inset:0;z-index:1;width:100vw;height:100dvh;overflow:hidden;isolation:isolate;background:transparent;--kiln-foot-x:50%;--kiln-foot-y:67%;--auction-foot-x:50%;--auction-foot-y:59%;--studio-foot-x:50%;--studio-foot-y:76%;--home-foot-x:67%;--home-foot-y:91%;--photo-foot-x:50%;--photo-foot-y:75.5%}
+#gameFrame *{box-sizing:border-box}
+#gameFrame .home,#gameFrame .workbench,#gameFrame .page,#gameFrame .studio,#gameFrame .app,#gameFrame .shop,#gameFrame .auction-scene{position:relative;width:100%;min-width:0;max-width:none;height:100%;min-height:0;max-height:none;margin:0;overflow:hidden;background:transparent;box-shadow:none}
+#gameFrame .workbench,#gameFrame .page,#gameFrame .studio{display:block;padding:0}
+#gameFrame .layout{display:block;width:100%;height:100%;margin:0;padding:0}
+body.mobile-craft #gameFrame .stage,body.mobile-kiln #gameFrame .scene,#gameFrame .viewfinder{position:absolute;inset:0;width:100%;min-width:0;max-width:none;height:100%;min-height:0;max-height:none;margin:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+#gameFrame #potCanvas,#gameFrame #fireCanvas{width:100%;height:100%}
+#gameFrame .studio-bg{display:none}
+#gameFrame .veil{background:linear-gradient(#0c170e3d,#13221620 48%,#0b130c60)}
+#gameFrame .scene-vignette{background:linear-gradient(90deg,#0c07051f,transparent 13% 87%,#0c07051f),linear-gradient(0deg,#08070755,transparent 18% 87%,#0d0b0a55)}
+#gameFrame .topbar{position:absolute;left:0;right:0;top:0;z-index:28;width:100%;height:58px;padding:0 clamp(16px,3vw,50px);border:0;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+#gameFrame .topbar>a:first-child,#gameFrame .top>a:first-child,#gameFrame .shop header a,#gameFrame .back-button{display:grid;place-items:center;width:44px;height:44px;border:1px solid #fff8d995;border-radius:50%;background:#dcead022;box-shadow:inset 0 1px #fff7;color:#fff7e6;backdrop-filter:blur(22px) saturate(1.5);-webkit-backdrop-filter:blur(22px) saturate(1.5);overflow:hidden;clip-path:circle(50% at 50%)}
+#gameFrame .mobile-action-dock{position:absolute;top:17%;right:clamp(14px,3vw,56px);gap:clamp(9px,1.8vh,17px)}
+#gameFrame .mobile-shortcut,#gameFrame .mobile-shortcut.mobile-done{width:clamp(46px,5vw,57px);height:clamp(46px,5vw,57px);border:1px solid #fff6d28b;border-radius:50%;background:#e5efd52b;box-shadow:inset 0 1px #fff7;color:#fff8e9;backdrop-filter:blur(22px) saturate(1.55);-webkit-backdrop-filter:blur(22px) saturate(1.55);overflow:hidden;clip-path:circle(50% at 50%)}
+#gameFrame .mobile-shortcut:disabled{opacity:.48}
+#gameFrame .order-rating{top:75px;left:clamp(14px,3vw,56px)}
+#gameFrame .order-peek-button{left:clamp(14px,3vw,56px);overflow:hidden;clip-path:circle(50% at 50%)}
+#gameFrame .pottery-sound-toggle{top:12px;right:clamp(14px,3vw,56px);bottom:auto;overflow:hidden;clip-path:circle(50% at 50%)}
+#gameFrame .mobile-tool-strip{position:absolute;left:0;right:0;top:0;z-index:40;width:100%;height:138px;min-height:0;max-height:min(29dvh,172px);display:flex;align-items:center;padding:14px clamp(75px,8vw,116px) 14px clamp(18px,3vw,50px);border:0;border-bottom:1px solid #fff8d98c;border-radius:0 0 22px 22px;background:linear-gradient(125deg,#e2efda33,#2c473738);box-shadow:inset 0 1px #fff8,0 18px 38px #06110b78;backdrop-filter:blur(32px) saturate(1.65);-webkit-backdrop-filter:blur(32px) saturate(1.65);overflow:hidden;clip-path:inset(0 round 0 0 22px 22px)}
+#gameFrame .mobile-tool-strip[hidden]{display:none}
+#gameFrame .strip-close{position:absolute;top:50%;right:clamp(17px,3vw,52px);transform:translateY(-50%);width:43px;height:43px;display:grid;place-items:center;border:1px solid #fff8d28b;border-radius:50%;background:#e5efd52b;color:#fff8e9;font-size:25px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);overflow:hidden;clip-path:circle(50% at 50%)}
+#gameFrame .strip-content{width:100%;height:100%;display:flex;align-items:center;overflow-x:auto;overflow-y:hidden;padding:0;scrollbar-width:none}
+#gameFrame .strip-content::-webkit-scrollbar{display:none}
+#gameFrame .strip-tool,#gameFrame .strip-choices{min-width:100%;height:100%;align-items:center}
+#gameFrame .strip-tool .pattern-grid{align-items:center}
+#gameFrame .strip-tool .pattern-grid button,#gameFrame .strip-tool .swatches button{flex:0 0 86px;width:86px;height:86px;min-height:86px;display:grid;grid-template-rows:50px 17px;align-content:center;justify-items:stretch;gap:4px;padding:5px;border:1px solid #f6e6c875;border-radius:14px;background:#e5efd51d;color:#f7edd9;text-align:center;box-shadow:none;backdrop-filter:blur(18px) saturate(1.45);-webkit-backdrop-filter:blur(18px) saturate(1.45);overflow:hidden;isolation:isolate;clip-path:inset(0 round 14px)}
+#gameFrame .strip-tool .pattern-grid img,#gameFrame .strip-tool .swatch-preview{display:block;width:100%;height:50px;border:0;border-radius:8px;object-fit:cover;background:var(--swatch,#d9c8ab);box-shadow:inset 0 0 0 1px #f9f1dd54}
+#gameFrame .strip-tool .pattern-grid span,#gameFrame .strip-tool .swatch-name{display:block;max-width:100%;font:11px/18px "Noto Serif SC","Songti SC",serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#gameFrame .strip-tool .swatches{flex:none;width:max-content;max-width:none;gap:10px;padding:0;overflow:visible}
+#gameFrame .strip-tool #patternRow [hidden]{display:none!important}
+#gameFrame .strip-tool #patternGroup{flex:0 0 auto;max-width:clamp(108px,20vw,180px);height:45px;margin-right:8px;padding:0 27px 0 10px;border:1px solid #f6e6c875;border-radius:13px;background:#e5efd52b;color:#fff7e6;font:12px "Noto Serif SC","Songti SC",serif;backdrop-filter:blur(18px) saturate(1.45);-webkit-backdrop-filter:blur(18px) saturate(1.45)}
+#gameFrame .strip-tool #patternGroup option{color:#193226;background:#e8e3d0}
+#gameFrame .strip-tool #expandedPatterns{display:flex;align-items:center;flex:none}
+#gameFrame .strip-tool .culture-patterns{display:flex;align-items:center;margin:0;border:0}
+#gameFrame .strip-tool .culture-patterns[hidden]{display:none!important}
+#gameFrame .strip-tool .culture-patterns summary{display:none}
+#gameFrame .strip-tool .swatches button[aria-pressed=true],#gameFrame .strip-tool .pattern-grid button[aria-pressed=true]{outline:2px solid #f3d9a1;outline-offset:-3px}
+#gameFrame .strip-choices button{background:#e5efd51d;border:1px solid #f6e6c875;backdrop-filter:blur(18px) saturate(1.45);-webkit-backdrop-filter:blur(18px) saturate(1.45);overflow:hidden;clip-path:inset(0 round 18px)}
+#gameFrame .strip-choices button[aria-pressed=true]{background:#dec995c9;color:#243729}
+#gameFrame .scroll{width:min(1220px,94vw);height:calc(100dvh - 58px);margin:0 auto;overflow-y:auto}
+#gameFrame .app .scroll{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr));align-content:start;gap:12px clamp(16px,3vw,42px);padding:8px 3px 70px}
+#gameFrame .app .intro,#gameFrame .app .letter{grid-column:1/-1}
+#gameFrame .app .reference,#gameFrame .app .progress{align-self:start}
+#gameFrame .app .drawing{width:min(32vw,290px);max-width:100%;margin:8px auto 12px}
+#gameFrame .app .threshold{font-size:clamp(11px,1vw,14px)}
+#gameFrame .app .top{height:58px}
+#gameFrame .drawing{height:auto}
+#gameFrame .shop{overflow-y:auto}
+#gameFrame .shop nav{max-width:min(920px,92vw);margin-inline:auto}
+#gameFrame .workflow-gate,#gameFrame .workflow-picker{width:100%;height:100%;min-height:0}
+#gameFrame .capture-sheet{width:100%;height:100%;background:#07110cc9;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+#gameFrame .capture-card{width:min(320px,68vw);max-height:86dvh;overflow:hidden;clip-path:inset(0 round 3px)}
+#gameFrame .viewfinder::after{box-shadow:inset 0 0 65px #3b2f1b24}
+#gameFrame .shutter-row{right:clamp(14px,3vw,56px);top:17%;width:50px;height:50px}
+#gameFrame .shelf-shadow{left:calc(var(--kiln-foot-x) - min(16vw,175px));top:calc(var(--kiln-foot-y) - 12px);width:min(32vw,350px);height:28px}
+#gameFrame .kiln-contact{left:calc(var(--kiln-foot-x) - min(20vw,210px));top:calc(var(--kiln-foot-y) - 25px);width:min(40vw,420px);height:50px}
+#gameFrame .auction-scene::before{background:linear-gradient(#10080540,transparent 19% 60%,#130b0870 85%,#0d08088c)}
+#gameFrame #auctionPot{left:var(--auction-foot-x);top:calc(var(--auction-foot-y) - min(51dvh,400px));transform:translateX(-50%);width:min(60vw,650px);height:min(65dvh,520px)}
+#gameFrame .gavel-stage{left:clamp(10px,10vw,170px);bottom:22%;width:clamp(170px,20vw,260px);height:auto;aspect-ratio:1.65}
+#gameFrame .gavel-stage img{left:17%;bottom:35%;width:100%;transform-origin:92% 87%}
+#gameFrame .sound-block{left:8%;bottom:28%;width:28%;height:12%}
+#gameFrame .piggy{right:clamp(15px,9vw,150px);width:clamp(115px,15vw,165px)}
+#gameFrame .price-display strong{font-size:clamp(50px,7vw,86px)}
+#gameFrame .pattern-mobile-nav{width:min(760px,calc(100vw - 28px));overflow:hidden;clip-path:inset(0 round 22px);background:#d9e8d02c;backdrop-filter:blur(26px) saturate(1.5);-webkit-backdrop-filter:blur(26px) saturate(1.5)}
+#gameFrame .editor-section,#gameFrame .preview-section,#gameFrame .assist-section,#gameFrame .save-section{left:max(14px,calc(50% - 460px));right:max(14px,calc(50% - 460px));bottom:80px;overflow:auto;clip-path:inset(0 round 16px);background:linear-gradient(145deg,#dcead02b,#18372891);backdrop-filter:blur(26px) saturate(1.45);-webkit-backdrop-filter:blur(26px) saturate(1.45)}
+#gameFrame .home-title,#gameFrame .home-menu{left:clamp(22px,7vw,120px)}
+#gameFrame .home-title{top:clamp(42px,7vh,90px)}
+#gameFrame .home-menu{top:clamp(235px,35vh,390px)}
+#gameFrame .home-wheel{left:calc(50% + min(8vw,110px));bottom:1%;width:clamp(280px,39vw,470px);height:min(78dvh,670px)}
+#gameFrame .home.is-starting .home-wheel{transform:translate3d(-18vw,-3vh,0)}
+#gameFrame .order-peek-panel{position:absolute;top:clamp(145px,22vh,225px);left:clamp(14px,3vw,56px);width:clamp(110px,17vw,190px);padding:0;border:0;border-radius:0;background:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;overflow:visible;z-index:30;touch-action:none}
+#gameFrame .order-peek-photo{width:100%;height:auto;aspect-ratio:4/5;margin:0;border:6px solid #e9dec7;border-bottom-width:15px;border-radius:2px;background:#ded1b9;box-shadow:0 12px 22px #0008}
+#gameFrame .order-peek-photo img{width:100%;height:100%;object-fit:contain;margin:0;background:transparent}
+#gameFrame .card{overflow:hidden;clip-path:inset(0 round 7px)}
+#gameFrame .shop .card{background:linear-gradient(145deg,#edf7df2d,#14372082);border-color:#fff5d47b;backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4)}
+#gameFrame .shop nav{background:#e0edd327;backdrop-filter:blur(25px) saturate(1.4);-webkit-backdrop-filter:blur(25px) saturate(1.4)}
+#gameFrame .scene-anchor{position:absolute;z-index:100;display:grid;place-items:center;width:24px;height:24px;transform:translate(-50%,-50%);border:2px solid #fff;border-radius:50%;background:#c13928a9;box-shadow:0 0 0 5px #1119;color:#fff;font:14px sans-serif;pointer-events:none}
+#gameFrame .scene-anchor::after{content:attr(data-label);position:absolute;left:26px;top:-3px;width:max-content;padding:3px 5px;border-radius:4px;background:#151b17d9;font:11px sans-serif}
+@media(max-width:700px){
+ #gameFrame .home-title,#gameFrame .home-menu{left:7%}
+ #gameFrame .home-menu{top:35%}
+ #gameFrame .home-wheel{left:auto;right:2%;bottom:-4%;width:min(85vw,420px);height:min(62dvh,510px)}
+ #gameFrame .home.is-starting .home-wheel{transform:translate3d(-39vw,-3dvh,0)}
+ #gameFrame .mobile-tool-strip{height:130px;padding-left:13px;padding-right:69px}
+ #gameFrame .strip-close{right:14px}
+ #gameFrame .app .scroll{display:block;width:100%;padding:6px 17px 75px}
+ #gameFrame .app .drawing{width:min(68vw,270px);margin:12px auto 15px}
+ #gameFrame #auctionPot{width:min(89vw,420px);height:min(65dvh,520px)}
+ #gameFrame .gavel-stage{left:2%;bottom:17%;width:43%}
+ #gameFrame .piggy{right:3%}
+}
+/* A captured view of the same vessel bridges stage navigation. */
+.vessel-handoff{position:fixed;z-index:9002;object-fit:fill;pointer-events:none;filter:drop-shadow(0 13px 20px #080c0980)}
+.scene-handoff-backdrop{position:fixed;inset:0;z-index:9001;background-position:center;background-size:cover;pointer-events:none}
+.vessel-arriving{opacity:0;transition:opacity .18s ease}
+.scene-arriving::before{animation:scene-background-arrive .76s cubic-bezier(.22,.65,.2,1) both}
+@keyframes scene-background-arrive{from{transform:translateX(8vw);opacity:.68}to{transform:translateX(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){.scene-arriving::before{animation:none}}
+.scene-controls-leave .topbar,.scene-controls-leave .mobile-action-dock,.scene-controls-leave .home-title,.scene-controls-leave .home-menu,.scene-controls-leave .shutter-row,.scene-controls-leave .price-display,.scene-controls-leave .shop header,.scene-controls-leave .shop nav,.scene-controls-leave .app .top,.scene-controls-leave .app .scroll{animation:controls-leave .45s ease forwards}
+.scene-controls-enter .topbar,.scene-controls-enter .mobile-action-dock,.scene-controls-enter .home-title,.scene-controls-enter .home-menu,.scene-controls-enter .shutter-row,.scene-controls-enter .price-display,.scene-controls-enter .shop header,.scene-controls-enter .shop nav,.scene-controls-enter .app .top,.scene-controls-enter .app .scroll{animation:controls-enter .7s ease both}
+@keyframes controls-leave{to{opacity:0}}
+@keyframes controls-enter{from{opacity:0}to{opacity:1}}

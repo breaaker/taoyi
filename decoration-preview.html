@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script src="./engine/app-entry.js?v=20261005file1"></script><style>html.scene-loading body{visibility:hidden}html.scene-loading .scene-handoff-backdrop,html.scene-loading .vessel-handoff{visibility:visible}</style><script>try{if(sessionStorage.getItem("clay-and-flame-scene-handoff-v1"))document.documentElement.classList.add("scene-loading") }catch(_){}</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14231d">
+  <title>曲面装饰 · 泥与火</title>
+  <link rel="stylesheet" href="./shaping-preview.css">
+  <link rel="stylesheet" href="./decoration-preview.css?v=20261004expanded1">
+  <link rel="stylesheet" href="./order-peek.css?v=20261003d">
+  <link rel="stylesheet" href="./order-rating.css?v=20261004a">
+  <link rel="stylesheet" href="./reference-viewer.css">
+  <link rel="stylesheet" href="./mobile-shell.css?v=20261004frame3">
+<link rel="stylesheet" href="./game-frame.css?v=20261004spa3"><link rel="stylesheet" href="./glass.css?v=20261005clear1"><link rel="stylesheet" href="./locale.css?v=20261005en1"></head>
+<body>
+  <main class="workbench">
+    <header class="topbar"><a class="back" href="./index.html" aria-label="返回工坊"><svg class="button-icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M26 16H6M13 9l-7 7 7 7"/></svg></a><div class="top-title"><span>泥与火</span><small>曲面装饰</small></div><a class="shop-link" href="./shop.html">商店</a><span class="draft-state" id="draftState">装饰草稿</span></header>
+    <section class="stage" aria-label="陶器三维装饰区域">
+      <div class="stage-light" aria-hidden="true"></div>
+      <div class="stage-note"><span class="note-number">03 / 装饰</span><strong id="materialName">暖陶土</strong><small id="bandCount">尚未上色</small></div>
+      <canvas id="potCanvas" aria-label="陶器三维装饰视图。底色按住加深并可上下滑动；花纹按住预览，松手贴上"></canvas>
+      <div class="stage-prompt" id="stagePrompt">按住加深底色，上下滑动连续上色；换色可混合</div>
+      <div class="stage-footer"><span id="toolDescription">底色 · 雾蓝</span><span>空白处拖动可转动视角</span></div>
+    </section>
+    <section class="tray" aria-label="装饰工具">
+      <div class="tray-head"><span>给陶器添一笔</span><p>底色可反复涂抹、叠色；纹样始终在底色上方。</p></div>
+      <div class="tray-row tool-row"><span>类型</span><div class="segmented" role="group" aria-label="装饰类型"><button id="colorTool" type="button" aria-pressed="true">涂底色</button><button id="patternTool" type="button" aria-pressed="false">贴花纹</button><button id="drawTool" type="button" aria-pressed="false">手绘线</button></div></div>
+      <div class="tray-row swatch-row"><span>色料</span><div class="swatches" id="swatches" role="group" aria-label="色料，横向滑动查看更多颜色"></div></div>
+      <div class="pattern-row" id="patternRow" hidden><select id="patternGroup" aria-label="花纹文化与风格分类"></select><div class="pattern-heading">花纹 <small id="assetStatus">载入纹样中…</small></div><div class="pattern-grid" id="basicPatterns" role="group" aria-label="基础花纹"><button type="button" data-pattern="wave" aria-pressed="true"><img src="./assets/patterns/builtin-wave.svg" alt=""><span>连波</span></button><button type="button" data-pattern="petal" aria-pressed="false"><img src="./assets/patterns/builtin-petal.svg" alt=""><span>花瓣</span></button></div><div class="pattern-heading">我的花纹 <a id="editPattern" href="./pattern-studio.html">绘制新花纹 ↗</a></div><div id="customPatterns" class="pattern-grid" role="group" aria-label="玩家自制花纹"></div><div class="pattern-heading">汐湾原创</div><div id="originalPatterns" class="pattern-grid" role="group" aria-label="汐湾原创环带"></div><div class="pattern-heading">首批馆藏改绘</div><div id="heritagePatterns" class="pattern-grid" role="group" aria-label="馆藏改绘环带"></div><div class="pattern-heading">各地新纹样 <small>点开查看</small></div><div id="expandedPatterns" aria-label="按文化分类的新纹样"></div></div>
+      <div class="draw-row" id="drawRow" hidden><div class="pattern-heading">曲面手绘 <small>把转台调慢，适合画局部线条</small></div><div class="tray-row"><label for="smoothing">最近一笔修顺</label><input id="smoothing" type="range" min="0" max="100" value="55"><output id="smoothingValue">55%</output></div><p>0% 保留原笔迹；向右只修正细小抖动，转折与端点保持原位。画完仍可调整最近一笔。</p></div>
+      <div class="tray-row"><label for="bandWidth">笔触 / 环带宽度</label><input id="bandWidth" type="range" min="12" max="110" value="31" aria-label="调整笔触或花纹环宽度"><output id="widthLabel" for="bandWidth">细</output></div>
+      <div class="tray-row speed-row"><label for="wheelSpeed">转台速度</label><input id="wheelSpeed" type="range" min="0" max="100" value="45" aria-label="调整转台速度"><output id="wheelSpeedValue" for="wheelSpeed">中速</output></div>
+      <div class="tray-row mode-row"><span>手势</span><div class="segmented" role="group" aria-label="手势模式"><button id="placeMode" type="button" aria-pressed="true">放置</button><button id="viewMode" type="button" aria-pressed="false">查看</button></div></div>
+      <div class="action-row"><button id="undo" type="button" disabled>↶ 撤销</button><button id="redo" type="button" disabled>↷ 重做</button><button id="clearBands" type="button">清空装饰</button></div>
+      <a class="next-photo" href="./photo-studio.html">完成装饰 · 去取景拍照 →</a>
+      <p class="sample-note">底色可停留加深、叠涂混色；花纹按住预览，松手固定；手绘线会直接贴着陶器曲面走。自制花纹可在“我的花纹”里编辑。</p>
+    </section>
+    <div id="renderError" class="render-error" role="alert" hidden></div>
+  </main>
+  <script src="./engine/audio-assets.js?v=20261004shell1"></script><script src="./engine/audio.js?v=20261005audio2"></script><script>window.PotteryAudio.setScene("decorate");</script><script src="./engine/geometry.js?v=20261005mass1"></script>
+  <script src="./engine/renderer.js?v=20261005rimlight1"></script>
+  <script src="./engine/decoration.js?v=20261005eraser1"></script>
+  <script src="./samples/pigments.js?v=20261003b"></script>
+  <script src="./engine/custom-patterns.js?v=20261003b"></script>
+  <script src="./engine/surface-drawing.js?v=20261005eraser1"></script>
+  <script src="./samples/clay-recipes.js"></script>
+  <script src="./engine/photo.js?v=20261003b"></script><script src="./engine/auction.js?v=20261003d"></script><script src="./content/order-patterns.js?v=20261005allorders1"></script><script src="./engine/economy-catalog.js?v=20261005eraser1"></script>
+  <script src="./engine/workflow.js?v=20261004recover1"></script><script src="./content/pattern-fit-presets.js"></script><script src="./decoration-preview.js?v=20261005eraser1"></script>
+  <script src="./engine/order-reference.js?v=20261005allorders1"></script><script src="./engine/capabilities.js?v=20261004orders1"></script><script src="./content/order-catalog.js?v=20261005allorders1"></script><script src="./engine/order-registry.js?v=20261005allorders1"></script><script src="./engine/orders.js?v=20261005eraser1"></script><script src="./reference-viewer.js?v=20261005glass1"></script><script src="./order-peek.js?v=20261005glass1"></script><script src="./order-rating.js?v=20261004a"></script>
+  <script src="./mobile-shell.js?v=20261005eraser1"></script>
+<script src="./game-frame.js?v=20261004audio1"></script><script src="./scene-transition.js?v=20261005pose1"></script><script src="./content/locales/en-ui.js?v=20261005eraser1"></script><script src="./content/locales/en-stories.js?v=20261005en1"></script><script src="./engine/i18n.js?v=20261005en1"></script></body>
+</html>

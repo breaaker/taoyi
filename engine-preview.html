@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><script src="./engine/app-entry.js?v=20261005file1"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#15221d">
+  <title>陶器材质样片 · 泥与火</title>
+  <link rel="stylesheet" href="./engine-preview.css">
+<link rel="stylesheet" href="./audio.css?v=20261003glass2"></head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <main class="page">
+    <header class="masthead">
+      <a class="brand" href="./index.html" aria-label="返回泥与火原型"><span class="brand-mark">◒</span><span>泥与火<small>CLAY & FLAME</small></span></a>
+      <span class="issue">ENGINE STUDY <b>01 / 05</b></span>
+    </header>
+
+    <section class="intro" aria-labelledby="studyTitle">
+      <div class="eyebrow"><span class="eyebrow-line"></span> 陶器引擎 · 材质研究</div>
+      <h1 id="studyTitle">从粗陶到细瓷，<em>让泥料说话。</em></h1>
+      <p>同一器型、同一束光，比较细陶、夹砂粗陶与细白瓷坯。下方可切换五种现实泥料参照；区别不只在颜色，也在孔隙、砂粒、轮廓起伏和反光。</p>
+    </section>
+
+    <section class="study" aria-label="三张可换泥料的烧成对照卡">
+      <div class="study-head"><span>01 — 泥料对照</span><span class="study-hint">每张卡片可切换泥料 · 抓住陶器拖动旋转</span></div>
+      <div class="triptych" id="triptych">
+        <article class="material-card earth-card">
+          <div class="card-top"><span class="state-number">01</span><span class="state-symbol" aria-hidden="true">◌</span></div>
+          <div class="display"><div class="pot-halo"></div><div class="pedestal"></div><canvas class="pot-view" data-recipe="0" aria-label="暖陶土三维视图，可拖动旋转"></canvas></div>
+          <div class="card-copy"><span class="state-tag" id="tag0">BUFF EARTHENWARE · 浅色陶土</span><h2 id="name0">暖陶土</h2><p id="description0">颜色烘暖，表面干燥、细颗粒可见。</p><div class="state-meter"><span id="feelL0">细密</span><i></i><span id="feelR0">柔和</span></div><label class="recipe-choice" for="recipe0">更换泥料 <select id="recipe0" aria-label="更换左侧泥料"></select></label></div>
+        </article>
+        <article class="material-card sand-card">
+          <div class="card-top"><span class="state-number">02</span><span class="state-symbol" aria-hidden="true">✺</span></div>
+          <div class="display"><div class="pot-halo"></div><div class="pedestal"></div><canvas class="pot-view" data-recipe="4" aria-label="夹砂粗陶三维视图，可拖动旋转"></canvas></div>
+          <div class="card-copy"><span class="state-tag" id="tag1">COARSE EARTHENWARE · 手筑低温陶</span><h2 id="name1">夹砂粗陶</h2><p id="description1">像未经修面的陶砖：粗砂、凹孔和不平整的哑光坯体。</p><div class="state-meter"><span id="feelL1">粗砂孔隙</span><i></i><span id="feelR1">砖质哑光</span></div><label class="recipe-choice" for="recipe1">更换泥料 <select id="recipe1" aria-label="更换中间泥料"></select></label></div>
+        </article>
+        <article class="material-card vitrified-card">
+          <div class="card-top"><span class="state-number">03</span><span class="state-symbol" aria-hidden="true">✦</span></div>
+          <div class="display"><div class="pot-halo"></div><div class="pedestal"></div><canvas class="pot-view" data-recipe="2" aria-label="白瓷三维视图，可拖动旋转"></canvas></div>
+          <div class="card-copy"><span class="state-tag" id="tag2">PORCELAIN · 细白瓷坯</span><h2 id="name2">白瓷</h2><p id="description2">细密白瓷坯经磨光后带柔和反光；彩釉仍需另施。</p><div class="state-meter"><span id="feelL2">细腻</span><i></i><span id="feelR2">柔光</span></div><label class="recipe-choice" for="recipe2">更换泥料 <select id="recipe2" aria-label="更换右侧泥料"></select></label></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="观察控制">
+      <div class="control-heading"><span>02 — 烧制与观察</span><p>三张卡片共用器型、烧制进度和视角。施釉仍是独立装饰步骤。</p></div>
+      <div class="control-field fire-field"><label for="fireProgress">烧制进度 <output id="fireValue">已烧成</output></label><input id="fireProgress" type="range" min="0" max="100" value="100" aria-label="烧制进度，从湿泥到烧成"><div class="range-ends"><span>湿泥</span><span>烧成</span></div></div>
+      <div class="control-field"><label for="lightAngle">移动灯光 <output id="lightValue">45°</output></label><input id="lightAngle" type="range" min="-160" max="160" value="45" aria-label="灯光方向"></div>
+      <div class="control-actions"><button id="zoomOut" type="button" aria-label="缩小陶器">−</button><span>细节远近</span><button id="zoomIn" type="button" aria-label="放大陶器">＋</button><button id="resetView" class="reset-view" type="button">重置视角</button></div>
+      <a class="next-step" href="./shaping-preview.html">进入塑形手感样片 →</a>
+    </section>
+
+    <footer class="footer"><span>第一项引擎样片 · 几何与材质</span><span>塑形、烧制与装饰将逐项接入</span></footer>
+    <div id="renderError" class="render-error" role="alert" hidden></div>
+  </main>
+  <script src="./engine/audio-assets.js?v=20261004shell1"></script><script src="./engine/audio.js?v=20261005audio2"></script><script>window.PotteryAudio.setScene("material");</script><script src="./engine/geometry.js"></script>
+  <script src="./engine/renderer.js"></script>
+  <script src="./samples/clay-recipes.js"></script>
+  <script src="./engine-preview.js"></script>
+</body>
+</html>
