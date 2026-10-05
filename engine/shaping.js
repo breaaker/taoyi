@@ -12,11 +12,6 @@
     return 1-3*t*t+2*t*t*t;
   }
 
-  function smoothstep(low,high,value) {
-    const t=clamp((value-low)/(high-low),0,1);
-    return t*t*(3-2*t);
-  }
-
   function cloneShape(shape) {
     return {radii:[...shape.radii],heights:[...shape.heights],
       clayMass:Number.isFinite(shape.clayMass)?shape.clayMass:window.PotteryEngine.shellVolume(shape.radii,shape.heights,.055)};
@@ -30,33 +25,20 @@
     const radialIntent=.12*Math.tanh(outward/80);
     const verticalIntent=.25*Math.tanh(-dy/85);
     const weights=base.radii.map((_,i)=>falloff(i-index));
-    // Pulling the middle carries the clay above the fingers with it. A broad
-    // strain through the whole wall keeps the gesture effective without making
-    // a sharp ledge where the local grip fades out.
-    const rawHeight=i=>.48*i/RINGS+.52*smoothstep(index-24,index+24,i);
-    const bottomWeight=rawHeight(0),weightSpan=rawHeight(RINGS)-bottomWeight;
-    const heightWeights=weights.map((_,i)=>(rawHeight(i)-bottomWeight)/weightSpan);
+    // Strain only the gripped strip. The upper wall translates, retaining
+    // its own spacing and radius, while the bottom stays on the wheel.
+    const segmentWeights=base.heights.slice(1).map((_,i)=>falloff(i+.5-index));
+    const activeLength=segmentWeights.reduce((sum,w,i)=>sum+w*(base.heights[i+1]-base.heights[i]),0);
+    const requested=clamp(base.heights[RINGS]+verticalIntent,MIN_HEIGHT,MAX_HEIGHT)-base.heights[RINGS];
+    const strain=activeLength>0?clamp(requested/activeLength,-.65,1.5):0;
     const result=cloneShape(base);
-    // The full profile follows the pull, while a small extra displacement is
-    // centred on the grip. Global scaling keeps short forms reachable even
-    // after many compressions at the same spot.
-    const targetHeight=clamp(base.heights[RINGS]+verticalIntent,MIN_HEIGHT,MAX_HEIGHT);
-    const applied=targetHeight-base.heights[RINGS];
-    const scale=targetHeight/base.heights[RINGS];
-    const localDeltas=heightWeights.map((weight,i)=>applied*.18*(weight-i/RINGS));
-    let localScale=1;
     for(let i=1;i<=RINGS;i++){
-      const delta=localDeltas[i]-localDeltas[i-1];
-      if(delta<0)localScale=Math.min(localScale,.8*scale*(base.heights[i]-base.heights[i-1])/-delta);
+      const spacing=base.heights[i]-base.heights[i-1];
+      result.heights[i]=result.heights[i-1]+spacing*(1+strain*segmentWeights[i-1]);
     }
-    for(let i=1;i<=RINGS;i++)result.heights[i]=base.heights[i]*scale+localDeltas[i]*localScale;
-    // Height changes affect the full wall. Spread the small width response
-    // through the full profile so repeated compressions do not build a belt
-    // around the grip; horizontal pushes remain local.
-    const radialChanges=weights.map((weight,i)=>
-      radialIntent*weight+clamp(-.22*applied/base.heights[RINGS]*base.radii[i],-.08,.08));
     for(let i=0;i<=RINGS;i++){
-      result.radii[i]=clamp(base.radii[i]+radialChanges[i],.13,1.0);
+      const widthResponse=clamp(-.22*strain*weights[i]*base.radii[i],-.08,.08);
+      result.radii[i]=clamp(base.radii[i]+radialIntent*weights[i]+widthResponse,.13,1);
     }
     return result;
   }
